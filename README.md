@@ -2,7 +2,7 @@
 
 致敬，[https://github.com/tzangms/iloveck101](https://github.com/tzangms/iloveck101), PHP version
 
-前只支援 Mac。
+目前只支援 Mac。
 
 by fukuball 2013.12.04
 
@@ -12,7 +12,7 @@ by fukuball 2013.12.04
 ```bash
 $ git clone https://github.com/fukuball/iloveck101.git
 $ cd iloveck101
-$ sudo php install.php
+$ sudo php ck101_install.php
 ```
 
 
@@ -33,7 +33,7 @@ $ iloveck101 http://ck101.com/thread-2876990-1-1.html
 ==========
 
 ```bash
-$ sudo php uninstall.php
+$ sudo php ck101_uninstall.php
 ```
 
 我愛卡提諾
