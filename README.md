@@ -1,6 +1,6 @@
 # iloveck101
 
-致敬，[https://github.com/tzangms/iloveck101](https://github.com/tzangms/iloveck101), PHP version
+致敬，[https://github.com/tzangms/iloveck101](https://github.com/tzangms/iloveck101)，PHP version
 
 目前只支援 Mac。
 
