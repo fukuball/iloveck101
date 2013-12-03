@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 /**
  * iloveck101.php
@@ -144,7 +145,12 @@ class ILoveCK101
 
 			// save image
 			$ck101_img_path = $thread_page_folder.'/'.$img_filename;
-			file_put_contents($ck101_img_path, $img_src_data);
+			if (!file_exists($ck101_img_path)) {
+    			file_put_contents($ck101_img_path, $img_src_data);
+    			echo "Fetching $img_src success ...\n";
+			} else {
+				echo "$img_src already exist ...\n";
+			}	
             
 		}		
 
