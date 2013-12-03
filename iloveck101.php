@@ -26,7 +26,7 @@
 class ILoveCK101
 {
 
-	/**
+    /**
      * Static method runOnCommandLine
      *
      * @return void

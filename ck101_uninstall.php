@@ -17,7 +17,7 @@ $dest_cmd_path = '/usr/local/bin/iloveck101';
 echo "Uninstall iloveck101 from $dest_cmd_path ...\n";
 
 if (file_exists($dest_cmd_path)) {
-	unlink($dest_cmd_path);
-	echo "Uninstall success ...\n";
+    unlink($dest_cmd_path);
+    echo "Uninstall success ...\n";
 }
 ?>
