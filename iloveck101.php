@@ -34,16 +34,16 @@ class ILoveCK101
     public static function runOnCommandLine()
     {
 
-    	$url = $_SERVER["argv"][1];
+        $url = $_SERVER["argv"][1];
 
-    	if (empty($url)) {
+        if (empty($url)) {
 
-   			echo "Please provide URL ck101\n";
-   			exit;
-		
-		}
+            echo "Please provide URL ck101\n";
+            exit;
 
-		self::getPictureByUrl($url);
+        }
+
+        self::getPictureByUrl($url);
 
     }// end function runOnCommandLine
 
