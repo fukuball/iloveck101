@@ -21,7 +21,6 @@ $ sudo php install.php
 
 ```bash
 $ iloveck101 [url]
-
 ```
 
 for example, 你可以試試看思穎
