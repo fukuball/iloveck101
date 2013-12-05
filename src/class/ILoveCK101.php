@@ -142,7 +142,7 @@ class ILoveCK101
                 continue;
             }
 
-         // save image
+            // save image
             $ck101_img_path = $thread_page_folder.'/'.$img_filename;
             if (!file_exists($ck101_img_path)) {
                 file_put_contents($ck101_img_path, $img_src_data);

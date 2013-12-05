@@ -32,7 +32,7 @@ class Utility
     * @param string $destination
     * @param array  $options
     *
-    * @return void
+    * @return bool  $status
     */
    public static function copy_directory($source, $destination, $options=array())
    {
