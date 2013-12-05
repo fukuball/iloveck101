@@ -12,15 +12,33 @@
  * @link     https://github.com/fukuball/iloveck101
  */
 
-$dest_cmd_path = '/usr/local/bin/iloveck101';
-$source_path = dirname(__FILE__).'/iloveck101.php';
+require_once dirname(__FILE__)."/src/class/Utility.php";
 
-echo "Install iloveck101 from $source_path to $dest_cmd_path ...\n";
+$ck101_cmd_path = '/usr/local/bin/iloveck101';
+$source_cmd_path = '/Library/Fuku-PHP/iloveck101/iloveck101.php';
 
-if (copy($source_path, $dest_cmd_path)) {
-    chmod($dest_cmd_path, 0755);
-    echo "Install success ...\n";
+$source_folder = dirname(__FILE__).'/src';
+$destination_folder  = '/Library/Fuku-PHP/iloveck101';
+
+echo "Install iloveck101 from $source_folder to $destination_folder ...\n";
+
+if (file_exists($ck101_cmd_path)) {
+   unlink($ck101_cmd_path);
+}
+
+$copy_options = array('mode'=>'debug');
+
+if (Utility::copy_directory($source_folder, $destination_folder, $copy_options)) {
+
+   symlink($source_cmd_path, $ck101_cmd_path);
+   chmod($source_cmd_path, 0755);
+   chmod($ck101_cmd_path, 0755);
+
+   echo "Install success ...\n";
+
 } else {
-    echo "Install fail ...\n";	
+
+   echo "Install fail ...\n";	
+
 }
 ?>

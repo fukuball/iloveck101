@@ -1,12 +1,11 @@
-#!/usr/bin/php
 <?php
 /**
- * iloveck101.php
+ * ILoveCK101.php
  *
  * PHP version 5
  *
  * @category PHP
- * @package  /
+ * @package  /class/
  * @author   Fukuball Lin <fukuball@gmail.com>
  * @license  MIT Licence
  * @version  Release: <0.0.1>
@@ -17,7 +16,7 @@
  * ILoveCK101
  *
  * @category PHP
- * @package  /
+ * @package  /class/
  * @author   Fukuball Lin <fukuball@gmail.com>
  * @license  MIT Licence
  * @version  Release: <0.0.1>
@@ -125,7 +124,7 @@ class ILoveCK101
 
             $img_src = $img_tag->getAttribute('file');
             $img_filename = substr($img_src, strrpos($img_src, '/')+1);
-        	
+         
             // ignore useless image
             if (filter_var($img_src, FILTER_VALIDATE_URL) === false) {
                 continue;
@@ -143,22 +142,19 @@ class ILoveCK101
                 continue;
             }
 
-        	// save image
+         // save image
             $ck101_img_path = $thread_page_folder.'/'.$img_filename;
             if (!file_exists($ck101_img_path)) {
                 file_put_contents($ck101_img_path, $img_src_data);
                 echo "Fetching $img_src success ...\n";
             } else {
                 echo "$img_src already exist ...\n";
-            }	
+            }  
             
-        }		
+        }      
 
 
     }// end function iloveck101
 
 }// end of class ILoveCK101
-
-ILoveCK101::runOnCommandLine();
-
 ?>

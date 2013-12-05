@@ -12,12 +12,20 @@
  * @link     https://github.com/fukuball/iloveck101
  */
 
-$dest_cmd_path = '/usr/local/bin/iloveck101';
+require_once dirname(__FILE__)."/src/class/Utility.php";
 
-echo "Uninstall iloveck101 from $dest_cmd_path ...\n";
+$ck101_cmd_path = '/usr/local/bin/iloveck101';
+$lib_folder  = '/Library/Fuku-PHP/iloveck101';
 
-if (file_exists($dest_cmd_path)) {
-    unlink($dest_cmd_path);
-    echo "Uninstall success ...\n";
+echo "Uninstall iloveck101 from $lib_folder ...\n";
+
+if (file_exists($ck101_cmd_path)) {
+   unlink($ck101_cmd_path);
 }
+
+$delete_options = array('mode'=>'debug');
+
+Utility::delete_directory($lib_folder, $delete_options);
+
+echo "Uninstall success ...\n";
 ?>
