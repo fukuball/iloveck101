@@ -42,19 +42,19 @@ class ILoveCK101
 
         }
 
-        self::getPictureByUrl($url);
+        self::getThread($url);
 
     }// end function runOnCommandLine
 
     /**
-     * Static method iloveck101
+     * Static method getThread
      *
      * @param string $url
      * @param array $options
      *
      * @return void
      */
-    public static function getPictureByUrl($url, $options=array())
+    public static function getThread($url, $options=array())
     {
 
         $defaults = array(
@@ -154,7 +154,8 @@ class ILoveCK101
         }      
 
 
-    }// end function iloveck101
+    }// end function getThread
+
 
 }// end of class ILoveCK101
 ?>
