@@ -1,0 +1,19 @@
+{
+    "name": "fukuball/iloveck101",
+    "description": "我愛卡提諾 PHP 版本",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "fukuball",
+            "email": "fukuball@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+	"php": ">= 5.3",
+        "phpunit/phpunit": ">=3.7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=3.7.0"
+    }
+}
