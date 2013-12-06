@@ -11,7 +11,7 @@ before_script:
   - mkdir -p build/logs
 
 script:
-  - phpunit -c tests/ --colors --coverage-text --coverage-clover build/logs/clover.xml
+  - phpunit -c test/ --colors --coverage-text --coverage-clover build/logs/clover.xml
 
 after_success:
   - vendor/bin/coveralls -c tests/coveralls.yml -v
