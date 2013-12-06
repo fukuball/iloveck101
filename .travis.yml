@@ -1,5 +1,17 @@
 language: php
+
 php:
-  - "5.5"
-  - "5.4"
   - "5.3"
+  - "5.4"
+  - "5.5"
+
+before_script:
+  - composer self-update
+  - composer install --dev --prefer-source
+  - mkdir -p build/logs
+
+script:
+  - phpunit -c tests/ --colors --coverage-text --coverage-clover build/logs/clover.xml
+
+after_success:
+  - vendor/bin/coveralls -c tests/coveralls.yml -v
