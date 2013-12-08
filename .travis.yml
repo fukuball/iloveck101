@@ -24,8 +24,15 @@ before_script:
 
 # omitting "script:" will default to phpunit
 # use the $DB env variable to determine the phpunit.xml to use
-script: phpunit --configuration phpunit_$DB.xml --coverage-text --coverage-clover build/logs/clover.xml
+script:
+  - mkdir -p build/logs 
+  - php vendor/bin/phpunit --configuration phpunit_$DB.xml --coverage-text --coverage-clover build/logs/clover.xml
 
 # configure notifications (email, IRC, campfire etc)
 #notifications:
   #irc: "irc.freenode.org#travis"
+
+after_script:
+  #- php vendor/bin/coveralls
+  # or enable logging
+  - php vendor/bin/coveralls -v
