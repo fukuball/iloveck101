@@ -14,4 +14,4 @@ script:
   - phpunit -c test/ --colors --coverage-text --coverage-clover build/logs/clover.xml
 
 after_success:
-  - vendor/bin/coveralls -c tests/coveralls.yml -v
+  - vendor/bin/coveralls -c test/coveralls.yml -v
