@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/fukuball/iloveck101.png?branch=master)](https://travis-ci.org/fukuball/iloveck101)
 [![Coverage Status](https://coveralls.io/repos/fukuball/iloveck101/badge.png?branch=master)](https://coveralls.io/r/fukuball/iloveck101?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/fukuball/iloveck101/v/stable.png)](https://packagist.org/packages/fukuball/iloveck101)
 
 致敬，[https://github.com/tzangms/iloveck101](https://github.com/tzangms/iloveck101)，PHP version
 
