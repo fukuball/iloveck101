@@ -32,6 +32,7 @@
                 <directory>./travis</directory>
                 <directory>./vendor</directory>
                 <file>./src/iloveck101.php</file>
+                <file>./src/class/ClassAutoloader.php</file>
             </exclude>
         </whitelist>
     </filter>
