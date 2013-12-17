@@ -15,6 +15,12 @@
 
 // autoload
 require_once dirname(__FILE__)."/class/ClassAutoloader.php";
- 
-ILoveCK101::runOnCommandLine();
+
+if (empty($_SERVER["argv"][1])) {
+   
+   echo "Please provide URL ck101\n";
+   exit;
+}
+
+ILoveCK101::getThread($_SERVER["argv"][1]);
 ?>

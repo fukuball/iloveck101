@@ -26,27 +26,6 @@ class ILoveCK101
 {
 
     /**
-     * Static method runOnCommandLine
-     *
-     * @return void
-     */
-    public static function runOnCommandLine()
-    {
-
-        $url = $_SERVER["argv"][1];
-
-        if (empty($url)) {
-
-            echo "Please provide URL ck101\n";
-            exit;
-
-        }
-
-        self::getThread($url);
-
-    }// end function runOnCommandLine
-
-    /**
      * Static method getThread
      *
      * @param string $url
@@ -155,11 +134,6 @@ class ILoveCK101
 
 
     }// end function getThread
-
-    public static function runCover()
-    {
-
-    } 
 
 
 }// end of class ILoveCK101

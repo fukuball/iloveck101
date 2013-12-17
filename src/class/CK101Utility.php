@@ -1,6 +1,6 @@
 <?php
 /**
- * Utility.php
+ * CK101Utility.php
  *
  * PHP version 5
  *
@@ -13,7 +13,7 @@
  */
 
 /**
- * Utility
+ * CK101Utility
  *
  * @category PHP
  * @package  /class/
@@ -22,7 +22,7 @@
  * @version  Release: <0.0.1>
  * @link     https://github.com/fukuball/iloveck101
  */
-class Utility
+class CK101Utility
 {
 
    /**
@@ -169,5 +169,5 @@ class Utility
    
    }// end function delete_directory
 
-}// end of class Utility
+}// end of class CK101Utility
 ?>

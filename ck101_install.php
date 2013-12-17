@@ -12,7 +12,7 @@
  * @link     https://github.com/fukuball/iloveck101
  */
 
-require_once dirname(__FILE__)."/src/class/Utility.php";
+require_once dirname(__FILE__)."/src/class/CK101Utility.php";
 
 $ck101_cmd_path = '/usr/local/bin/iloveck101';
 $source_cmd_path = '/Library/Fuku-PHP/iloveck101/iloveck101.php';
@@ -28,7 +28,7 @@ if (file_exists($ck101_cmd_path)) {
 
 $copy_options = array('mode'=>'debug');
 
-if (Utility::copy_directory($source_folder, $destination_folder, $copy_options)) {
+if (CK101Utility::copy_directory($source_folder, $destination_folder, $copy_options)) {
 
    symlink($source_cmd_path, $ck101_cmd_path);
    chmod($source_cmd_path, 0755);
