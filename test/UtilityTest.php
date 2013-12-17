@@ -2,7 +2,7 @@
 class UtilityTest extends PHPUnit_Framework_TestCase
 {
 
-    public function testRunOnCommandLine()
+    public function testCopyDirectory()
     {
         $this->assertEquals('true', 'true');
     }
@@ -11,6 +11,5 @@ class UtilityTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals('true', 'true');
     }
-    
 }
 ?>

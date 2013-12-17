@@ -34,7 +34,7 @@ class ILoveCK101
     {
 
         $url = $_SERVER["argv"][1];
-
+        echo $url;
         if (empty($url)) {
 
             echo "Please provide URL ck101\n";
@@ -151,6 +151,11 @@ class ILoveCK101
                 echo "$img_src already exist ...\n";
             }  
             
+        }
+
+        public static function runCover()
+        {
+
         }      
 
 

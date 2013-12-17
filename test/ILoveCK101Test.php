@@ -2,7 +2,7 @@
 class ILoveCK101Test extends PHPUnit_Framework_TestCase
 {
 
-    public function testCopyDirectory()
+    public function testRunOnCommandLine()
     {
         $this->assertEquals('true', 'true');
     }
@@ -11,6 +11,12 @@ class ILoveCK101Test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals('true', 'true');
     }
-    
+
+    public function testRunCover()
+    {
+        ILoveCK101::runCover();
+        $this->assertEquals('true', 'true');
+    }
+
 }
 ?>
