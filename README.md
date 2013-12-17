@@ -1,4 +1,6 @@
-# iloveck101
+# iloveck101 - PHP
+
+[![Build Status](https://travis-ci.org/fukuball/iloveck101.png?branch=master)](https://travis-ci.org/fukuball/iloveck101)
 
 致敬，[https://github.com/tzangms/iloveck101](https://github.com/tzangms/iloveck101)，PHP version
 
