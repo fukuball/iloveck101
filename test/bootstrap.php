@@ -1,24 +1,17 @@
 <?php
+function loader($class) {
+    $file = $class . '.php';
+    if (file_exists($file)) {
+        require_once $file;
+    }
+}
+function class_loader($class) {
+    $file = dirname(dirname(__FILE__)).'/src/class/'.$class . '.php';
+    if (file_exists($file)) {
+      require_once $file;
+    }
+}
 
-class ClassAutoloader
-{
-   
-   public function __construct()
-   {
-   
-      spl_autoload_register(array($this, 'loader'));
-   
-   }
-   
-   private function loader($className)
-   {
-   
-      //echo 'Trying to load ', $className, ' via ', __METHOD__, "()\n";
-      require_once dirname(dirname(__FILE__)).'/src/class/'.$className . '.php';
-   
-   }
-
-}// en of class ClassAutoloader
-
-$autoloader = new ClassAutoloader();
+spl_autoload_register('loader');
+spl_autoload_register('class_loader');
 ?>

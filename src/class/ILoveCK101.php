@@ -31,7 +31,7 @@ class ILoveCK101
      * @param string $url
      * @param array $options
      *
-     * @return void
+     * @return boolean $process_status
      */
     public static function getThread($url, $options=array())
     {
@@ -48,7 +48,8 @@ class ILoveCK101
         if ( !preg_match('/^thread-(\d+)-.*/', $thread_filename, $thread) ) {
 
             echo "URL pattern should be something like this: http://ck101.com/thread-2593278-1-1.html\n";
-            exit;
+            
+            return false;
 
         }
 
@@ -130,8 +131,9 @@ class ILoveCK101
                 echo "$img_src already exist ...\n";
             }  
             
-        }      
+        }   
 
+        return true;   
 
     }// end function getThread
 
