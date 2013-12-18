@@ -27,6 +27,7 @@
             <directory>./src</directory>
             <exclude>
                 <directory>./build</directory>
+                <directory>./codesniffer</directory>
                 <directory>./composer</directory>
                 <directory>./test</directory>
                 <directory>./travis</directory>
