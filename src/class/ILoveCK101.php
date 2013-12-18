@@ -8,7 +8,7 @@
  * @package  /class/
  * @author   Fukuball Lin <fukuball@gmail.com>
  * @license  MIT Licence
- * @version  Release: <0.0.1>
+ * @version  GIT: <fukuball/iloveck101>
  * @link     https://github.com/fukuball/iloveck101
  */
 
@@ -28,8 +28,8 @@ class ILoveCK101
     /**
      * Static method getThread
      *
-     * @param string $url
-     * @param array $options
+     * @param string $url     # input url
+     * @param array  $options # other options
      *
      * @return boolean $process_status
      */
@@ -47,7 +47,8 @@ class ILoveCK101
         // find thread id
         if ( !preg_match('/^thread-(\d+)-.*/', $thread_filename, $thread) ) {
 
-            echo "URL pattern should be something like this: http://ck101.com/thread-2593278-1-1.html\n";
+            echo "URL pattern should be something like this: ".
+                 "http://ck101.com/thread-2593278-1-1.html\n";
             
             return false;
 

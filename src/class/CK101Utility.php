@@ -8,7 +8,7 @@
  * @package  /class/
  * @author   Fukuball Lin <fukuball@gmail.com>
  * @license  MIT Licence
- * @version  Release: <0.0.1>
+ * @version  GIT: <fukuball/iloveck101>
  * @link     https://github.com/fukuball/iloveck101
  */
 
@@ -25,149 +25,168 @@
 class CK101Utility
 {
 
-   /**
-    * Static method copy_directory
-    *
-    * @param string $source
-    * @param string $destination
-    * @param array  $options
-    *
-    * @return bool  $status
-    */
-   public static function copy_directory($source, $destination, $options=array())
-   {
+    /**
+     * Static method copy_directory
+     *
+     * @param string $source      # copy source path
+     * @param string $destination # copy destination path
+     * @param array  $options     # other options
+     *
+     * @return bool  $status
+     */
+    public static function copy_directory($source, $destination, $options=array())
+    {
 
-      $status = false;
+        $status = false;
 
-      $defaults = array(
-         'mode'=>'default'
-      );
+        $defaults = array(
+            'mode'=>'default'
+        );
 
-      $options = array_merge($defaults, $options);
+        $options = array_merge($defaults, $options);
 
-      if (is_dir($source)) {
+        if (is_dir($source)) {
        
-        @mkdir($destination, 0755, true);
+            @mkdir($destination, 0755, true);
 
-        $directory = dir($source);
+            $directory = dir($source);
 
-         while ( FALSE !== ($readdirectory = $directory->read()) ) {
+            while ( false !== ($readdirectory = $directory->read()) ) {
 
-            if ($readdirectory == '.' || $readdirectory == '..') {
+                if ($readdirectory == '.' || $readdirectory == '..') {
                
-               continue;
+                    continue;
             
+                }
+
+                $pathdir = $source . '/' . $readdirectory;
+
+                if ( is_dir($pathdir) ) {
+
+                    self::copy_directory($pathdir, $destination.'/'.$readdirectory, $options);
+
+                    if ($options['mode']=='debug') {
+
+                        echo $pathdir."\n";
+                        echo $destination.'/'.$readdirectory."\n";
+
+                    }
+
+                    continue;
+
+                }
+
+                $status = copy($pathdir, $destination.'/'.$readdirectory);
+
+                if ($options['mode']=='debug') {
+
+                    echo $pathdir."\n";
+                    echo $destination.'/'.$readdirectory."\n";
+
+                }
+
             }
 
-            $pathdir = $source . '/' . $readdirectory;
+            $directory->close();
 
-            if ( is_dir($pathdir) ) {
+        } else {
 
-               self::copy_directory($pathdir, $destination.'/'.$readdirectory, $options);
-               
-               if ($options['mode']=='debug') {
-                  echo $pathdir."\n";
-                  echo $destination.'/'.$readdirectory."\n";
-               }
-
-               continue;
-
-            }
-
-            $status = copy($pathdir, $destination.'/'.$readdirectory);
+            $status = copy($source, $destination);
 
             if ($options['mode']=='debug') {
-               echo $pathdir."\n";
-               echo $destination.'/'.$readdirectory."\n";
+
+                echo $source."\n";
+                echo $destination."\n";
+
             }
-         
-         }
 
-         $directory->close();
-      
-      } else {
-         
-         $status = copy($source, $destination);
+        }
 
-         if ($options['mode']=='debug') {
-            echo $source."\n";
-            echo $destination."\n";
-         }
-      
-      }
+        return $status;
 
-      return $status;
+    }// end function copy_directory
 
-   }// end function copy_directory
+    
+    /**
+     * Static method delete_directory
+     *
+     * @param string $directory # delete directory path
+     * @param array  $options   # other options
+     *
+     * @return void
+     */
+    public static function delete_directory($directory, $options=array())
+    {
 
-   /**
-    * Static method delete_directory
-    *
-    * @param string $directory
-    * @param array  $options
-    *
-    * @return void
-    */
-   public static function delete_directory($directory, $options=array())
-   {
+        $defaults = array(
+            'mode'=>'default'
+        );
 
-      $defaults = array(
-         'mode'=>'default'
-      );
+        $options = array_merge($defaults, $options);
 
-      $options = array_merge($defaults, $options);
-   
-      if (is_dir($directory)) {
+        if (is_dir($directory)) {
 
-         if (substr($directory, strlen($directory)-1, 1) != '/') {
-            
-            $directory .= '/';
-         
-         }
+            if (substr($directory, strlen($directory)-1, 1) != '/') {
 
-         $files = glob($directory . '*', GLOB_MARK);
+                $directory .= '/';
 
-         foreach ($files as $file) {
-         
-            if (is_dir($file)) {
-            
-               self::delete_directory($file, $options);
-         
-            } else {
-               
-               if (file_exists($file)) {
-                  unlink($file);
-               }
-
-               if ($options['mode']=='debug') {
-                  echo $file."\n";
-               }
-         
             }
-       
-         }
 
-         if (file_exists($directory)) {
-            rmdir($directory);
-         }
+            $files = glob($directory . '*', GLOB_MARK);
 
-         if ($options['mode']=='debug') {
-            echo $directory."\n";
-         }
+            foreach ($files as $file) {
 
-      } else {
+                if (is_dir($file)) {
 
-         if (file_exists($directory)) {
-            unlink($directory);
-         }
-         
-         if ($options['mode']=='debug') {
-            echo $directory."\n";  
-         }
-      
-      }
-   
-   }// end function delete_directory
+                    self::delete_directory($file, $options);
+
+                } else {
+
+                    if (file_exists($file)) {
+
+                        unlink($file);
+
+                    }
+
+                    if ($options['mode']=='debug') {
+
+                        echo $file."\n";
+
+                    }
+
+                }
+
+            }
+
+            if (file_exists($directory)) {
+
+                rmdir($directory);
+
+            }
+
+            if ($options['mode']=='debug') {
+
+                echo $directory."\n";
+
+            }
+
+        } else {
+
+            if (file_exists($directory)) {
+
+                unlink($directory);
+
+            }
+
+            if ($options['mode']=='debug') {
+
+                echo $directory."\n";
+
+            }
+
+        }
+
+    }// end function delete_directory
 
 }// end of class CK101Utility
 ?>

@@ -8,7 +8,7 @@
  * @package  /class/
  * @author   Fukuball Lin <fukuball@gmail.com>
  * @license  MIT Licence
- * @version  Release: <0.0.1>
+ * @version  GIT: <fukuball/iloveck101>
  * @link     https://github.com/fukuball/iloveck101
  */
 
@@ -22,24 +22,35 @@
  * @version  Release: <0.0.1>
  * @link     https://github.com/fukuball/iloveck101
  */
-
 class ClassAutoloader
 {
    
-   public function __construct()
-   {
+    /**
+     * Method __construct
+     *
+     * @return void
+     */
+    public function __construct()
+    {
    
-      spl_autoload_register(array($this, 'loader'));
+        spl_autoload_register(array($this, 'loader'));
    
-   }
+    }
+
+    /**
+     * Method loader
+     *
+     * @param string $className # input class namec
+     *
+     * @return void
+     */
+    private function loader($className)
+    {
    
-   private function loader($className)
-   {
+        //echo 'Trying to load ', $className, ' via ', __METHOD__, "()\n";
+        include_once dirname(__FILE__).'/'.$className . '.php';
    
-      //echo 'Trying to load ', $className, ' via ', __METHOD__, "()\n";
-      require_once dirname(__FILE__).'/'.$className . '.php';
-   
-   }
+    }
 
 }// en of class ClassAutoloader
 
