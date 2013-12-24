@@ -37,7 +37,7 @@ class CK101Utility
     public static function copy_directory($source, $destination, $options=array())
     {
 
-        $status = false;
+$status = false;
 
         $defaults = array(
             'mode'=>'default'
