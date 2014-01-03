@@ -9,7 +9,7 @@ class ILoveCK101Test extends PHPUnit_Framework_TestCase
         $process_status = ILoveCK101::getThread("");
         $this->assertEquals(false, $process_status);
 
-        ILoveCK101::getThread("http://ck101.com/thread-2877280-1-1.html");
+        ILoveCK101::getThread("http://ck101.com/thread-2842044-1-1.html");
 
         $base_folder = $_SERVER['HOME'].'/Pictures/iloveck101';
         $base_folder_exist = file_exists($base_folder);
