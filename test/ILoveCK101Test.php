@@ -26,7 +26,7 @@ class ILoveCK101Test extends PHPUnit_Framework_TestCase
                 $thread_file_exist = true;
                 break;   
             }
-        }c
+        }
         $this->assertEquals(true, $thread_file_exist);
 
     }
