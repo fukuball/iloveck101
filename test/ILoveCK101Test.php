@@ -19,8 +19,14 @@ class ILoveCK101Test extends PHPUnit_Framework_TestCase
         $thread_folder_exist = file_exists($dirs[0]);
         $this->assertEquals(true, $thread_folder_exist);
 
-        $files = array_filter(glob($dirs[0].'/*'), 'is_file');
-        $thread_file_exist = file_exists($files[0]);
+        $files = scandir($dirs[0]);
+        $thread_file_exist = false;
+        foreach ($files as $file) {
+            if (file_exists($file)) {
+                $thread_file_exist = true;
+                break;   
+            }
+        }c
         $this->assertEquals(true, $thread_file_exist);
 
     }
